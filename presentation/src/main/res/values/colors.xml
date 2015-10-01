@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="base_screen_background">#E0E0E0</color>
+
+    <!-- Action Bar and Theme -->
+    <color name="primary">#8763A0</color>
+    <color name="accent">#808763A0</color>
+    <color name="primary_dark">#6C4F80</color>
+    <color name="colorControlNormal">@color/grey</color>
+    <color name="controlHighlight">@color/accent</color>
+    <color name="controlActivated">@color/accent</color>
+
+    <color name="navigationBarBackground">@color/dark_grey</color>
+
+    <!-- Generic colors -->
+    <color name="very_light_grey">#FAFAFA</color>
+    <color name="light_grey">#D3D3D3</color>
+    <color name="grey">#808080</color>
+    <color name="dark_grey">#2C2C2F</color>
+    <color name="dark_grey_a40">#662C2C2F</color>
+    <color name="white">@android:color/white</color>
+    <color name="white_pressed">#66FFFFFF</color>
+    <color name="white_disabled">#b3FFFFFF</color>
+    <color name="black">@android:color/black</color>
+    <color name="green">#A0C840</color>
+
+
+    <!-- Button -->
+    <color name="green_button">@color/green</color>
+    <color name="grey_button">@color/grey</color>
+    <color name="grey_button_pressed">@color/dark_grey</color>
+
+    <!-- Splash -->
+    <color name="splash">#74909b</color>
+    <color name="light_red">#D77174</color>
+    <color name="light_blue">#81A9C7</color>
+    <color name="light_orange">#F4A85E</color>
+
+</resources>

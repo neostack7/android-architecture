@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">GateWay</string>
+    <string name="MSG_SERVER_ERROR">SERVER ERROR</string>
+    <string name="MSG_PARSER_ERROR">Parse error</string>
+    <string name="MSG_NETWORK_ERROR">Network error</string>
+    <string name="TITLE_ERROR">Title error</string>
+</resources>

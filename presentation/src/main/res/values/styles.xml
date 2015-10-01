@@ -1,0 +1,108 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="cengageTheme"/>
+
+    <style name="cengageTheme" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <!-- colorPrimary is used for the default action bar background -->
+        <item name="colorPrimary">@color/primary</item>
+
+        <!--  darker variant for the status bar and contextual app bars -->
+        <item name="colorPrimaryDark">@color/black</item>
+
+        <!--  theme UI controls like checkboxes and text fields -->
+        <item name="colorAccent">@color/accent</item>
+
+        <!-- You can also set colorControlNormal, colorControlActivated colorControlHighlight, and colorSwitchThumbNormal. -->
+        <item name="colorControlNormal">@color/colorControlNormal</item>
+        <item name="colorControlHighlight">@color/controlHighlight</item>
+        <item name="colorControlActivated">@color/controlActivated</item>
+
+        <item name="android:textViewStyle">@style/myTextViewStyle</item>
+
+    </style>
+
+    <!--Use Roboto font-->
+    <style name="myTextViewStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textAppearance">@style/appTextNormal</item>
+    </style>
+
+    <!-- Application text font size-->
+    <style name="appTextNormal" parent="TextAppearance.AppCompat"/>
+
+    <style name="appTextSmall" parent="TextAppearance.AppCompat.Small"/>
+
+    <style name="appTextMedium" parent="TextAppearance.AppCompat.Medium"/>
+
+    <style name="appTextLarge" parent="TextAppearance.AppCompat.Large"/>
+
+    <style name="appTextXLarge" parent="android:TextAppearance.Large">
+        <item name="android:textSize">26sp</item>
+    </style>
+
+    <style name="style_material_alert_dialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <!-- Used for the buttons -->
+        <item name="colorAccent">@color/primary_dark</item>
+    </style>
+
+    <!-- Generic Edit Text Style -->
+    <style name="style_edit_text" parent="Widget.AppCompat.EditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/shape_edit_text</item>
+    </style>
+
+    <!-- Generic Button Style -->
+    <style name="style_button" parent="Widget.AppCompat.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/selector_button</item>
+        <item name="android:textColor">@drawable/selector_white_text</item>
+    </style>
+
+    <!-- Nav Drawer Style -->
+    <style name="AppTheme.NavDrawerItem">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/primary_text_default_material_light</item>
+    </style>
+
+    <style name="Theme.AppTheme.NavigationDrawer" parent="AppTheme">
+        <item name="textAppearanceListItem">@style/Theme.AppTheme.NavDrawerItem</item>
+    </style>
+
+    <style name="Theme.AppTheme.NavDrawerItem" parent="AppTheme.NavDrawerItem">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="style_eula_buttons" parent="appTextNormal">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingLeft">@dimen/padding_20</item>
+        <item name="android:paddingRight">@dimen/padding_20</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textColor">@color/primary_dark</item>
+    </style>
+
+    <style name="style_tab_layout" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">?attr/colorPrimary</item>
+        <item name="tabIndicatorHeight">2dp</item>
+        <item name="tabPaddingStart">12dp</item>
+        <item name="tabPaddingEnd">12dp</item>
+        <item name="tabBackground">@color/dark_grey</item>
+        <item name="tabTextAppearance">@style/tab_text_appearance</item>
+        <item name="tabSelectedTextColor">@color/white</item>
+    </style>
+
+    <style name="tab_text_appearance" parent="TextAppearance.Design.Tab">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textAppearance">@style/appTextMedium</item>
+        <item name="android:textColor">@color/white_pressed</item>
+        <item name="textAllCaps">true</item>
+    </style>
+
+</resources>
