@@ -20,7 +20,7 @@ public class FileStorage implements IFileStorage {
 
     public static IFileStorage getInstance(Context context) {
         if (instance == null) {
-            synchronized (PreferenceStorage.class) {
+            synchronized (FileStorage.class) {
                 if (instance == null) {
                     instance = new FileStorage(context);
                 }
