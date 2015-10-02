@@ -3,12 +3,15 @@ package com.example.presentation.audioplayer;
 import android.app.Activity;
 import android.content.Intent;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.androidarchitecture.R;
 import com.example.businesslogic.audioplayer.IAudioPlayerView;
 import com.example.businesslogic.audioplayer.IPlayAudioPresenter;
 import com.example.businesslogic.audioplayer.PlayAudioPresenter;
 import com.example.config.Constants;
+import com.example.gateway.models.FileUploadResponse;
 import com.example.presentation.framework.BaseFragment;
 import com.example.presentation.utils.AndroidUtils;
 
@@ -22,6 +25,14 @@ public class AudioPlayerFragment extends BaseFragment implements IAudioPlayerVie
 
     @Bind(R.id.btn_play_audio)
     protected Button playAudioBtn;
+
+    @Bind((R.id.btn_upload_audio))
+    protected Button uploadAudioFileBtn;
+
+    @Bind((R.id.uploaded_file_url))
+    protected TextView uploadedFileUrl;
+
+
     private IPlayAudioPresenter playAudioPresenter;
 
     @Override
@@ -49,6 +60,17 @@ public class AudioPlayerFragment extends BaseFragment implements IAudioPlayerVie
         playAudioPresenter.playAudioFile("abduction.wav");
     }
 
+    @OnClick(R.id.btn_upload_audio)
+    protected void onUploadAudioClicked() {
+        AndroidUtils.hideKeyboard(getActivity());
+        if (!isInternetAvailable()) {
+            showNoInternetConnectionMessage();
+            return;
+        }
+        playAudioPresenter.uploadAudioFile("abduction.wav");
+    }
+
+
     @Override
     public void startAudioPlayerService(String absolutePath) {
         Intent i = new Intent(getContext(),AudioPlayerService.class);
@@ -61,6 +83,17 @@ public class AudioPlayerFragment extends BaseFragment implements IAudioPlayerVie
     public String getFilePath(String filename) {
         File file = new File(getContext().getFilesDir(), filename);
         return file.getAbsolutePath();
+    }
+
+    @Override
+    public void enableUploadBtn(boolean enable) {
+        uploadAudioFileBtn.setEnabled(enable);
+    }
+
+    @Override
+    public void showUploadSuccessMessage(FileUploadResponse response) {
+        Toast.makeText(getContext(),"Uploaded file successfully "+response.name,Toast.LENGTH_SHORT).show();
+        uploadedFileUrl.setText("URL: "+response.url);
     }
 
     @Override

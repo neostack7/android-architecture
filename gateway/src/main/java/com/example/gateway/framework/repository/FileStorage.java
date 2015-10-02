@@ -2,6 +2,7 @@ package com.example.gateway.framework.repository;
 
 import android.content.Context;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -73,6 +74,10 @@ public class FileStorage implements IFileStorage {
     @Override
     public void delete(String filename) {
         context.deleteFile(filename);
+    }
+
+    public File getFile(String filename) {
+        return context.getFileStreamPath(filename);
     }
 
 }

@@ -3,9 +3,9 @@ package com.example.gateway.framework.network;
 /**
  *
  */
-public interface OnRequestFinishedListener {
+public interface  OnRequestFinishedListener<E extends IResponseData> {
 
-    void onSuccess(IResponseData successData);
+    void onSuccess(E successData);
 
     void onFailure(IResponseData failureData);
 }

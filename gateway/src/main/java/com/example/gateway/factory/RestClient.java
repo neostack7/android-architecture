@@ -27,12 +27,32 @@ public class RestClient {
     }
 
     /**
+     * "X-Parse-Application-Id": "VzxoXPuApFUCNOyOdUp4zTjtzviccPDx6aQRKNkt",
+     * "X-Parse-REST-API-Key": "jP1kswcyMCQbFOryoDGKktLzYOeW7IEyjaxNIePR",
+     * "Content-Type": "image/jpeg"
      *
      * @return Endpoints
      */
+    public Endpoints getEndpointsForUpload() {
+        final RestAdapter.Builder builder = getBasicRestAdapterBuilder();
+        builder.setEndpoint(EndPointProperties.getInstance().getUploadUrl());
+        builder.setRequestInterceptor(new RequestInterceptor() {
+            @Override
+            public void intercept(RequestFacade request) {
+                request.addHeader("X-Parse-Application-Id","VzxoXPuApFUCNOyOdUp4zTjtzviccPDx6aQRKNkt");
+                request.addHeader("X-Parse-REST-API-Key","jP1kswcyMCQbFOryoDGKktLzYOeW7IEyjaxNIePR");
+                request.addHeader("Content-Type", "audio/wav");
+
+            }
+        });
+        return builder.build().create(Endpoints.class);
+    }
+
+    /**
+     * @return Endpoints
+     */
     public Endpoints getEndpoints() {
-        final RestAdapter.Builder builder = new RestAdapter.Builder();
-        builder.setLogLevel(RestAdapter.LogLevel.FULL);
+        final RestAdapter.Builder builder = getBasicRestAdapterBuilder();
         builder.setEndpoint(EndPointProperties.getInstance().getBaseUrl());
         builder.setRequestInterceptor(new RequestInterceptor() {
             @Override
@@ -40,8 +60,17 @@ public class RestClient {
                 request.addHeader("Content-Type", "application/json");
             }
         });
-        final RestAdapter adapter = builder.build();
-        return adapter.create(Endpoints.class);
+        return builder.build().create(Endpoints.class);
+    }
+
+
+    /**
+     * @return Returns Basic RestAdapter Builder
+     */
+    private RestAdapter.Builder getBasicRestAdapterBuilder() {
+        final RestAdapter.Builder builder = new RestAdapter.Builder();
+        builder.setLogLevel(RestAdapter.LogLevel.FULL);
+        return builder;
     }
 
     public Endpoints getBasicEndpoints() {
@@ -51,8 +80,6 @@ public class RestClient {
         final RestAdapter adapter = builder.build();
         return adapter.create(Endpoints.class);
     }
-
-
 
 
 }

@@ -61,9 +61,9 @@ public class LoginPresenter extends BasePresenter implements ILoginPresenter {
     }
 
 
-    private OnRequestFinishedListener OnLoginRequestListener = new OnRequestFinishedListener() {
+    private OnRequestFinishedListener OnLoginRequestListener = new OnRequestFinishedListener<LoginInfo>() {
         @Override
-        public void onSuccess(IResponseData successData) {
+        public void onSuccess(LoginInfo successData) {
             //TODO Handle on login success
         }
 
