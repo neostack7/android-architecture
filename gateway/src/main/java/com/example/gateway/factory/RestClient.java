@@ -26,6 +26,9 @@ public class RestClient {
         return instance;
     }
 
+
+    //Todo Insert your Parse api key and application id
+
     /**
      * "X-Parse-Application-Id": "VzxoXPuApFUCNOyOdUp4zTjtzviccPDx6aQRKNkt",
      * "X-Parse-REST-API-Key": "jP1kswcyMCQbFOryoDGKktLzYOeW7IEyjaxNIePR",
