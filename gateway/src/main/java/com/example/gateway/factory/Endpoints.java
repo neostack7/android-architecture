@@ -30,9 +30,6 @@ public interface Endpoints {
     @GET("/sriaudio/audiosamples/{filename}")
     void downloadFile(@Path("filename") String filename, Callback<Response> callback);
 
-    @POST("/files/{filename}")
-    void uploadPdf(@Path("filename") String filename, @Body TypedFile file,Callback<FileUploadResponse> callback);
-
     @Multipart
     @POST("/api/web/SRIAction")
     void uploadAudio(@Part("GrammarKey") String filename, @Part("audio") TypedFile file,Callback<FileUploadResponse> callback);
