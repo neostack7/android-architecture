@@ -27,27 +27,9 @@ public class RestClient {
     }
 
 
-    //Todo Insert your Parse api key and application id
-
-    /**
-     * "X-Parse-Application-Id": "VzxoXPuApFUCNOyOdUp4zTjtzviccPDx6aQRKNkt",
-     * "X-Parse-REST-API-Key": "jP1kswcyMCQbFOryoDGKktLzYOeW7IEyjaxNIePR",
-     * "Content-Type": "image/jpeg"
-     *
-     * @return Endpoints
-     */
     public Endpoints getEndpointsForUpload() {
         final RestAdapter.Builder builder = getBasicRestAdapterBuilder();
-        builder.setEndpoint(EndPointProperties.getInstance().getUploadUrl());
-        builder.setRequestInterceptor(new RequestInterceptor() {
-            @Override
-            public void intercept(RequestFacade request) {
-                request.addHeader("X-Parse-Application-Id","VzxoXPuApFUCNOyOdUp4zTjtzviccPDx6aQRKNkt");
-                request.addHeader("X-Parse-REST-API-Key","jP1kswcyMCQbFOryoDGKktLzYOeW7IEyjaxNIePR");
-                request.addHeader("Content-Type", "audio/wav");
-
-            }
-        });
+        builder.setEndpoint(EndPointProperties.getInstance().getBaseUrl());
         return builder.build().create(Endpoints.class);
     }
 

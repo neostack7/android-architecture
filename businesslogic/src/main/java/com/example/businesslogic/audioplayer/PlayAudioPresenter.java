@@ -5,6 +5,7 @@ import com.example.gateway.factory.GateWayFactory;
 import com.example.gateway.framework.network.IResponseData;
 import com.example.gateway.framework.network.OnFileDownloadFinishedListener;
 import com.example.gateway.framework.network.OnRequestFinishedListener;
+import com.example.gateway.framework.network.UploadErrorMessage;
 import com.example.gateway.models.FileUploadResponse;
 import com.example.gateway.playaudio.IAudioFileRepository;
 import com.example.gateway.playaudio.IDownloadAudioService;
@@ -48,6 +49,7 @@ public class PlayAudioPresenter extends BasePresenter implements IPlayAudioPrese
         @Override
         public void onFailure(IResponseData failure) {
             //TODO HANDLE on failure downloading audio file
+            audioPlayerView.hideProgressDialog();
         }
     };
 
@@ -60,9 +62,16 @@ public class PlayAudioPresenter extends BasePresenter implements IPlayAudioPrese
 
         @Override
         public void onFailure(IResponseData failureData) {
-
+            audioPlayerView.hideProgressDialog();
+            audioPlayerView.showUploadFailureMessage(((UploadErrorMessage) failureData).getMessage());
         }
     };
+
+
+    class ErrorMessage implements IResponseData {
+        String errorCode;
+        String message;
+    }
 
     public PlayAudioPresenter(IAudioPlayerView audioPlayerView) {
         super(audioPlayerView);
@@ -86,6 +95,7 @@ public class PlayAudioPresenter extends BasePresenter implements IPlayAudioPrese
         audioPlayerView.showProgressDialog("Uploading audio.Please wait...");
         this.uploadFileName = filename;
         uploadAudioService.addServiceListener(onFileUploadListener);
+        //uploadAudioService.uploadAudioService(".ABDUCTION", audioRepository.getFile(filename));
         uploadAudioService.uploadAudioService(filename, audioRepository.getFile(filename));
     }
 

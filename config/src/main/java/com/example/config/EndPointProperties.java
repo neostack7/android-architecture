@@ -19,7 +19,7 @@ public class EndPointProperties {
 
     //TODO Set Base URL
     public void setBaseUrl(String baseUrl) {
-        this.baseUrl = baseUrl + "iq/sriaudio/";
+        this.baseUrl = baseUrl + "iq/";
     }
 
 

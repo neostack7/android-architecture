@@ -1,11 +1,12 @@
 package com.example.gateway.models;
 
 import com.example.gateway.framework.network.IResponseData;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Created by PraveenKatha on 02/10/15.
  */
 public class FileUploadResponse implements IResponseData {
-    public String url;
-    public String name;
+    @SerializedName("ConfidenceScore")
+    public int confidenceScore;
 }

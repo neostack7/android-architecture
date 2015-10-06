@@ -11,4 +11,5 @@ public interface IAudioPlayerView extends IBaseView{
     String getFilePath(String filename);
     void enableUploadBtn(boolean enable);
     void showUploadSuccessMessage(FileUploadResponse response);
+    void showUploadFailureMessage(String msg);
 }

@@ -39,7 +39,7 @@ public class RestServiceFactory implements IRestServiceFactory {
     @Override
     public IUploadAudioService getUploadAudioService() {
         if(uploadAudioService == null) {
-            uploadAudioService = new UploadAudioService();
+            uploadAudioService = new UploadAudioService(context);
         }
         return uploadAudioService;
     }

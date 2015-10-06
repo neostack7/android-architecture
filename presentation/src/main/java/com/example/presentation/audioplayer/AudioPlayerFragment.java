@@ -73,9 +73,9 @@ public class AudioPlayerFragment extends BaseFragment implements IAudioPlayerVie
 
     @Override
     public void startAudioPlayerService(String absolutePath) {
-        Intent i = new Intent(getContext(),AudioPlayerService.class);
+        Intent i = new Intent(getContext(), AudioPlayerService.class);
         i.setAction(Constants.ACTION_PLAY_AUDIO);
-        i.putExtra(AudioPlayerService.FILE_NAME_INTENT_EXTRA,absolutePath);
+        i.putExtra(AudioPlayerService.FILE_NAME_INTENT_EXTRA, absolutePath);
         getContext().startService(i);
     }
 
@@ -92,8 +92,13 @@ public class AudioPlayerFragment extends BaseFragment implements IAudioPlayerVie
 
     @Override
     public void showUploadSuccessMessage(FileUploadResponse response) {
-        Toast.makeText(getContext(),"Uploaded file successfully "+response.name,Toast.LENGTH_SHORT).show();
-        uploadedFileUrl.setText("URL: "+response.url);
+        Toast.makeText(getContext(), "Uploaded audio file successfully", Toast.LENGTH_SHORT).show();
+        uploadedFileUrl.setText("Your confidence score: " + response.confidenceScore);
+    }
+
+    @Override
+    public void showUploadFailureMessage(String msg) {
+        Toast.makeText(getContext(), "Error: "+msg, Toast.LENGTH_SHORT).show();
     }
 
     @Override

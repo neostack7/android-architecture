@@ -12,6 +12,15 @@ import retrofit.client.Response;
  */
 public class ErrorHandler {
 
+    public static UploadErrorMessage getUploadErrorMessage (RetrofitError error) {
+        if (error == null) {
+            return null;
+        }
+
+        UploadErrorMessage errorMessage = (UploadErrorMessage) error.getBodyAs(UploadErrorMessage.class);
+        return errorMessage;
+    }
+
     public static ErrorMessage getErrorMessage(Context context, RetrofitError error) {
         if (error == null) {
             return null;
